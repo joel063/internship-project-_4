@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .course {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .progress-bar {
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 20px;
+            margin-top: 10px;
+        }
+        .progress {
+            background: #0073e6;
+            height: 100%;
+            width: 0%;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            border: none;
+        }
+        button {
+            background: #0073e6;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #005bb5;
+        }
+    </style>
+</head>
+<body>
+
+<header>E-Learning Platform</header>
+
+<div class="container">
+    <div class="course">
+        <h2>JavaScript Basics</h2>
+        <p>Learn the fundamentals of JavaScript.</p>
+        <div class="progress-bar">
+            <div class="progress" id="progress1">0%</div>
+        </div>
+        <button onclick="updateProgress('progress1')">Mark as Complete</button>
+    </div>
+
+    <div class="course">
+        <h2>HTML & CSS</h2>
+        <p>Master the building blocks of the web.</p>
+        <div class="progress-bar">
+            <div class="progress" id="progress2">0%</div>
+        </div>
+        <button onclick="updateProgress('progress2')">Mark as Complete</button>
+    </div>
+
+    <div class="video-container">
+        <h3>Watch Tutorial</h3>
+        <iframe src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+    </div>
+</div>
+
+<script>
+    function updateProgress(progressId) {
+        let progressElement = document.getElementById(progressId);
+        let currentProgress = parseInt(progressElement.innerText);
+        if (currentProgress < 100) {
+            currentProgress += 20;
+            progressElement.style.width = currentProgress + "%";
+            progressElement.innerText = currentProgress + "%";
+        }
+    }
+</script>
+
+</body>
+</html>
